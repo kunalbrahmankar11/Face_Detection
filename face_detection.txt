@@ -1,0 +1,17 @@
+# import the library
+import cv2
+
+# create variable and used the .xml file 
+face_cascade=cv2.CascadeClassifier('/content/haarcascade_frontalface_default.xml')
+
+# giving the input image
+img=cv2.imread('/content/kunal1 (1).jpg')
+
+
+faces=face_cascade.detectMultiScale(img,1.1,4)
+
+for (x,y,w,h) in faces:
+  cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+
+cv2.imwrite('face_detected_kunal.png',img)
+print("photo successfully exported")
